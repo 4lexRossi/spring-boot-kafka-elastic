@@ -7,6 +7,15 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <modelVersion>kafka-admin</modelVersion>
-
+    <artifactId>kafka-admin</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>com.microservices.demo</groupId>
+            <artifactId>app-config-data</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+        </dependency>
+    </dependencies>
 </project>
