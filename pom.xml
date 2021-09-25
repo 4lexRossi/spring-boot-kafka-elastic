@@ -7,6 +7,9 @@
     <module>twitter-to-kafka-service</module>
     <module>app-config-data</module>
     <module>kafka</module>
+    <module>kafka/kafka-model</module>
+		<module>kafka/kafka-admin</module>
+		<module>kafka/kafka-producer</module>
     <module>common-config</module>
   </modules>
   <parent>
@@ -22,6 +25,7 @@
   <name>microservices-demo</name>
   <description>Microservices demo project for Spring Boot</description>
   <packaging>pom</packaging>
+
   <properties>
     <java.version>11</java.version>
     <spring-boot.version>2.3.4.RELEASE</spring-boot.version>
@@ -38,6 +42,11 @@
       <dependency>
         <groupId>com.microservices.demo</groupId>
         <artifactId>app-config-data</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.microservices.demo</groupId>
+        <artifactId>common-config</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>

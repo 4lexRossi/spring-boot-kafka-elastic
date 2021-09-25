@@ -12,8 +12,7 @@ public class RetryConfigData {
 
     private Long initialIntervalMs;
     private Long maxIntervalMs;
-    private Long multiplier;
-    private Long maxAttempts;
+    private Double multiplier;
+    private Integer maxAttempts;
     private Long sleepTimeMs;
-
 }
