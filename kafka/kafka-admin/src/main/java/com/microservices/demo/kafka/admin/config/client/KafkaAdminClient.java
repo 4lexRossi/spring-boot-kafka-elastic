@@ -47,7 +47,19 @@ public class KafkaAdminClient {
     }
 
     public void checkTopicsCreated() {
-
+        Collection<TopicListing> topics = getTopics();
+        int retryCount = 1;
+        Integer maxRetry = retryConfigData.getMaxAttempts();
+        Integer multiplier = retryConfigData.getMultiplier().intValue();
+        Long sleepTimeMS = retryConfigData.getSleepTimeMs();
+        for (String topic: kafkaConfigData.getTopicsNamesToCreate()) {
+            while (!isTopicCreated(topics, topic)) {
+                checkMaxRetry(retryCount++, maxRetry);
+                sleep(sleepTimeMS);
+                sleepTimeMs *= multiplier;
+                topics = getTopics();
+            }
+        }
     }
 
     private CreatedTopicsResult doCreateTopics(RetryContext retryContext) {
