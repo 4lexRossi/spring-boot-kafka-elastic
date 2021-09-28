@@ -87,8 +87,11 @@ public class KafkaAdminClient {
 
     private HttpStatus getSchemaRegistryStatus() {
         try {
-            return webClient.method(HttpMethod.GET).uri(kafkaConfigData.getSchemaRegistryUrl()).exchange()
-                    .map(ClientResponse::statusCode).block();
+            return webClient.method(HttpMethod.GET)
+                .uri(kafkaConfigData.getSchemaRegistryUrl())
+                .exchange()
+                .map(ClientResponse::statusCode)
+                .block();
         } catch (Exception e) {
             return HttpStatus.SERVICE_UNAVAILABLE;
         }
